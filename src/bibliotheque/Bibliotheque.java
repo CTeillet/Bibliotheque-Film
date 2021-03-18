@@ -1,10 +1,13 @@
 package bibliotheque;
 
+import interfaces.bibliotheque.IBibliotheque;
+import interfaces.bibliotheque.IElements;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bibliotheque {
-    private final List<Elements> biblio = new ArrayList<>();
+public class Bibliotheque implements IBibliotheque {
+    private final List<IElements> biblio = new ArrayList<>();
 
     public int size() {
         return biblio.size();
@@ -14,15 +17,15 @@ public class Bibliotheque {
         return biblio.isEmpty();
     }
 
-    public boolean contains(Elements e) {
+    public boolean contains(IElements e) {
         return biblio.contains(e);
     }
 
-    public boolean add(Elements elements) {
+    public boolean add(IElements elements) {
         return biblio.add(elements);
     }
 
-    public boolean remove(Elements e) {
+    public boolean remove(IElements e) {
         return biblio.remove(e);
     }
 
@@ -30,7 +33,7 @@ public class Bibliotheque {
         biblio.clear();
     }
 
-    public Elements get(int index) {
+    public IElements get(int index) {
         return biblio.get(index);
     }
 }

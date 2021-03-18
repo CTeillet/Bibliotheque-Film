@@ -1,13 +1,20 @@
 package utils;
 
+import bibliotheque.Bibliotheque;
+import bibliotheque.Elements;
+import bibliotheque.Film;
 import compte.GestionCompte;
 import compte.Personne;
 import connexion.GestionConnexion;
+import interfaces.bibliotheque.IBibliotheque;
+import interfaces.bibliotheque.IElements;
+import interfaces.bibliotheque.IFilm;
 import interfaces.compte.IGestionCompte;
 import interfaces.compte.IPersonne;
 import interfaces.connexion.IGestionConnexion;
 
 import java.util.Date;
+import java.util.List;
 
 public class Factory {
     private static Factory fact = new Factory();
@@ -26,7 +33,18 @@ public class Factory {
         return new GestionConnexion(gestionCompte);
     }
 
+    public IElements newElements(String titre, String emplacement){
+        return new Elements(titre, emplacement);
+    }
     public static Factory getFact() {
         return fact;
+    }
+
+    public IFilm newFilm(String titre, String emplacement, String realisateur, String duree, List<String> acteurs) {
+        return new Film(titre, emplacement, realisateur, duree, acteurs);
+    }
+
+    public IBibliotheque newBibliotheque() {
+        return new Bibliotheque();
     }
 }
