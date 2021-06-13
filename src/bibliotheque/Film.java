@@ -2,7 +2,6 @@ package bibliotheque;
 
 import interfaces.bibliotheque.IFilm;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Film extends Elements implements IFilm {

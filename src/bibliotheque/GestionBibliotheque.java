@@ -1,12 +1,17 @@
 package bibliotheque;
 
+import interfaces.bibliotheque.IBibliotheque;
 import interfaces.bibliotheque.IElements;
 import interfaces.bibliotheque.IGestionBibliotheque;
+import utils.Factory;
 
 public class GestionBibliotheque implements IGestionBibliotheque {
-    private Bibliotheque bibliotheque;
+    private IBibliotheque bibliotheque;
+    private static final IGestionBibliotheque instance = new GestionBibliotheque();
+    private Factory fact = Factory.getFact();
 
-    public GestionBibliotheque(Bibliotheque bibliotheque) {
+
+    public GestionBibliotheque(IBibliotheque bibliotheque) {
         this.bibliotheque = bibliotheque;
     }
 
@@ -39,5 +44,11 @@ public class GestionBibliotheque implements IGestionBibliotheque {
         return bibliotheque.get(index);
     }
 
+    private GestionBibliotheque(){
+        bibliotheque = fact.newBibliotheque();
+    }
 
+    public static IGestionBibliotheque getInstance() {
+        return instance;
+    }
 }

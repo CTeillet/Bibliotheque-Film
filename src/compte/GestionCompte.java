@@ -4,11 +4,19 @@ import interfaces.compte.IGestionCompte;
 import interfaces.compte.IPersonne;
 import utils.Factory;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GestionCompte implements IGestionCompte {
     private final Map<String, IPersonne> inscrits = new HashMap<>();
     private final Factory factory = Factory.getFact();
+
+    private static final IGestionCompte instance = new GestionCompte();
+
+    public static IGestionCompte getGestionCompte() {
+        return instance;
+    }
 
     @Override
     public boolean addPersonne(String nom, String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance) {
@@ -37,4 +45,6 @@ public class GestionCompte implements IGestionCompte {
     public int size(){
         return inscrits.size();
     }
+
+    private GestionCompte(){}
 }
