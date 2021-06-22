@@ -1,41 +1,41 @@
 package utils;
 
-import bibliotheque.Bibliotheque;
-import bibliotheque.Elements;
-import bibliotheque.Film;
-import bibliotheque.GestionBibliotheque;
-import compte.GestionCompte;
-import compte.Personne;
-import connexion.GestionConnexion;
-import interfaces.bibliotheque.IBibliotheque;
-import interfaces.bibliotheque.IElements;
-import interfaces.bibliotheque.IFilm;
-import interfaces.bibliotheque.IGestionBibliotheque;
-import interfaces.compte.IGestionCompte;
-import interfaces.compte.IPersonne;
-import interfaces.connexion.IGestionConnexion;
+import library.Library;
+import library.Elements;
+import library.Film;
+import library.ManageLibrary;
+import account.ManageAccount;
+import account.Person;
+import connection.ManageConnection;
+import interfaces.library.ILibrary;
+import interfaces.library.IElements;
+import interfaces.library.IFilm;
+import interfaces.library.IManageLibrary;
+import interfaces.account.IManageAccount;
+import interfaces.account.IPerson;
+import interfaces.connection.IManageConnection;
 
 import java.util.Date;
 import java.util.List;
 
 public class Factory {
-    private static Factory fact = new Factory();
+    private static final Factory fact = new Factory();
     public static Factory getFact() {
         return fact;
     }
 
-    public IPersonne newPersonne(String nom, String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance){
-        return new Personne(nom, prenom, mail, identifiant, motDePasse, dateNaissance);
+    public IPerson newPersonne(String nom, String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance){
+        return new Person(nom, prenom, mail, identifiant, motDePasse, dateNaissance);
     }
-    public IPersonne newPersonne(String mail, String identifiant, String motDePasse){
-        return new Personne(mail, identifiant, motDePasse);
+    public IPerson newPersonne(String mail, String identifiant, String motDePasse){
+        return new Person(mail, identifiant, motDePasse);
     }
-    public IGestionCompte newGestionCompte(){
-        return GestionCompte.getGestionCompte();
+    public IManageAccount newGestionCompte(){
+        return ManageAccount.getGestionCompte();
     }
 
-    public IGestionConnexion newGestionConnexion(IGestionCompte gestionCompte){
-        return new GestionConnexion(gestionCompte);
+    public IManageConnection newGestionConnexion(IManageAccount gestionCompte){
+        return new ManageConnection(gestionCompte);
     }
 
     public IElements newElements(String titre, String emplacement){
@@ -47,12 +47,12 @@ public class Factory {
         return new Film(titre, emplacement, realisateur, duree, acteurs);
     }
 
-    public IBibliotheque newBibliotheque() {
-        return new Bibliotheque();
+    public ILibrary newBibliotheque() {
+        return new Library();
     }
 
-    public IGestionBibliotheque newGestionBibliotheque(){
-        return GestionBibliotheque.getInstance();
+    public IManageLibrary newGestionBibliotheque(){
+        return ManageLibrary.getInstance();
     }
 
 
