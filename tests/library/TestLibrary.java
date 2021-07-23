@@ -9,7 +9,7 @@ import utils.Factory;
 
 public class TestLibrary {
     private final Factory factory = Factory.getFact();
-    private ILibrary library = factory.newLibrary();
+    private final ILibrary library = factory.newLibrary();
 
     @Test
     public void TestAjout(){
