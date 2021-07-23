@@ -42,7 +42,6 @@ public class Factory {
         return new Elements(title, path);
     }
 
-
     public IFilm newFilm(String title, String path, String director, String duration, List<String> actors) {
         return new Film(title, path, director, duration, actors);
     }

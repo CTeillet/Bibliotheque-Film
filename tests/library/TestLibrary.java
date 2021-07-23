@@ -8,13 +8,8 @@ import org.junit.jupiter.api.Test;
 import utils.Factory;
 
 public class TestLibrary {
-    private ILibrary library;
     private final Factory factory = Factory.getFact();
-
-    @BeforeEach
-    private void initialize(){
-        library = factory.newLibrary();
-    }
+    private ILibrary library = factory.newLibrary();
 
     @Test
     public void TestAjout(){
@@ -33,6 +28,12 @@ public class TestLibrary {
     }
 
     @Test
+    public void TestEmpty1(){
+        Assertions.assertTrue(library.isEmpty());
+        Assertions.assertEquals(library.size(), 0);
+    }
+
+    @Test
     public void TestEmpty(){
         Assertions.assertTrue(library.isEmpty());
         IElements el = factory.newElements("Bonjour", "c:/Bonjour.mp4");
@@ -46,7 +47,8 @@ public class TestLibrary {
     public void TestContains(){
         IElements el = factory.newElements("Bonjour", "c/Bonjour.mp4");
         library.add(el);
-        Assertions.assertEquals(library.size(), 1);
+        System.out.println("Taille : " + library.size());
+        Assertions.assertEquals(1, library.size());
         Assertions.assertTrue(library.contains(el));
     }
 
