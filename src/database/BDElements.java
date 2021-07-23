@@ -24,8 +24,8 @@ public class BDElements implements IBDElements {
     private static boolean executeUpdate(IElements elements, String req) {
         try (Connection conn = BDConnect.connect();
              PreparedStatement preparedStatement = conn.prepareStatement(req)){
-            preparedStatement.setString(1, elements.getEmplacement());
-            preparedStatement.setString(2, elements.getTitre());
+            preparedStatement.setString(1, elements.getPath());
+            preparedStatement.setString(2, elements.getTitle());
             int res = preparedStatement.executeUpdate();
             return res == 1;
         } catch (SQLException e) {
@@ -81,8 +81,8 @@ public class BDElements implements IBDElements {
         String req = "Select Count(*) from elements where title=? and path=?";
         try (Connection conn = BDConnect.connect();
              PreparedStatement preparedStatement = conn.prepareStatement(req)){
-            preparedStatement.setString(1, elements.getTitre());
-            preparedStatement.setString(2, elements.getEmplacement());
+            preparedStatement.setString(1, elements.getTitle());
+            preparedStatement.setString(2, elements.getPath());
             preparedStatement.execute();
             ResultSet res = preparedStatement.getResultSet();
             return res.getInt("total")>0;

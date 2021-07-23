@@ -5,35 +5,35 @@ import interfaces.account.IPerson;
 import java.util.Date;
 
 public class Person implements IPerson {
-    private final String nom;
-    private final String prenom;
+    private final String name;
+    private final String surname;
     private final String mail;
-    private final String identifiant;
-    private final String motDePasse;
-    private final Date dateNaissance;
+    private final String username;
+    private final String password;
+    private final Date birthDate;
 
 
-    public Person(String nom, String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance) {
-        this.nom = nom;
-        this.prenom = prenom;
+    public Person(String name, String surname, String mail, String username, String password, Date birthDate) {
+        this.name = name;
+        this.surname = surname;
         this.mail = mail;
-        this.identifiant = identifiant;
-        this.motDePasse = motDePasse;
-        this.dateNaissance = dateNaissance;
+        this.username = username;
+        this.password = password;
+        this.birthDate = birthDate;
     }
 
-    public Person(String mail, String identifiant, String motDePasse) {
-        this("", "", mail, identifiant, motDePasse, null);
-    }
-
-    @Override
-    public String getNom() {
-        return nom;
+    public Person(String mail, String username, String password) {
+        this("", "", mail, username, password, null);
     }
 
     @Override
-    public String getPrenom() {
-        return prenom;
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getSurname() {
+        return surname;
     }
 
     @Override
@@ -42,17 +42,17 @@ public class Person implements IPerson {
     }
 
     @Override
-    public String getIdentifiant() {
-        return identifiant;
+    public String getUsername() {
+        return username;
     }
 
     @Override
-    public String getMotDePasse() {
-        return motDePasse;
+    public String getPassword() {
+        return password;
     }
 
     @Override
-    public Date getDateNaissance() {
-        return dateNaissance;
+    public Date getBirthDate() {
+        return birthDate;
     }
 }

@@ -11,6 +11,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class TestPerson {
     final Factory fact = Factory.getFact();
 
@@ -18,25 +19,25 @@ public class TestPerson {
     void TestNormal() throws ParseException {
         String sDate1="30/07/1999";
         Date date=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
-        IPerson pers = fact.newPersonne("Teillet", "Corentin", "teillet.corentin@neuf.fr",
+        IPerson pers = fact.newPersonne("Jean", "Corentin", "teillet.corentin@neuf.fr",
                 "nono", "azerty", date);
-        assertEquals(pers.getPrenom(), "Corentin");
-        assertEquals(pers.getNom(), "Teillet");
+        assertEquals(pers.getSurname(), "Corentin");
+        assertEquals(pers.getName(), "Jean");
         assertEquals(pers.getMail(), "teillet.corentin@neuf.fr");
-        assertEquals(pers.getIdentifiant(), "nono");
-        assertEquals(pers.getMotDePasse(), "azerty");
+        assertEquals(pers.getUsername(), "nono");
+        assertEquals(pers.getPassword(), "azerty");
     }
 
     @Test
-    void TestSeulementParamètresObligatoires() {
+    void TestSeulementParametresObligatoires() {
         IPerson pers = fact.newPersonne("teillet.corentin@neuf.fr",
                 "nono", "azerty");
-        assertEquals(pers.getPrenom(), "");
-        assertEquals(pers.getNom(), "");
+        assertEquals(pers.getSurname(), "");
+        assertEquals(pers.getName(), "");
         assertEquals(pers.getMail(), "teillet.corentin@neuf.fr");
-        assertEquals(pers.getIdentifiant(), "nono");
-        assertEquals(pers.getMotDePasse(), "azerty");
-        assertNull(pers.getDateNaissance());
+        assertEquals(pers.getUsername(), "nono");
+        assertEquals(pers.getPassword(), "azerty");
+        assertNull(pers.getBirthDate());
     }
 
 

@@ -8,46 +8,46 @@ import org.junit.jupiter.api.Test;
 import utils.Factory;
 
 public class TestLibrary {
-    private ILibrary bibliotheque;
+    private ILibrary library;
     private final Factory factory = Factory.getFact();
 
     @BeforeEach
     private void initialize(){
-        bibliotheque = factory.newBibliotheque();
+        library = factory.newLibrary();
     }
 
     @Test
     public void TestAjout(){
         IElements el = factory.newElements("Bonjour", "c:/Bonjour.mp4");
-        bibliotheque.add(el);
-        Assertions.assertEquals(bibliotheque.size(), 1);
+        library.add(el);
+        Assertions.assertEquals(library.size(), 1);
     }
 
     @Test
     public void TestClear(){
         IElements el = factory.newElements("Bonjour", "c:/Bonjour.mp4");
-        bibliotheque.add(el);
-        Assertions.assertEquals(bibliotheque.size(), 1);
-        bibliotheque.clear();
-        Assertions.assertEquals(bibliotheque.size(), 0);
+        library.add(el);
+        Assertions.assertEquals(library.size(), 1);
+        library.clear();
+        Assertions.assertEquals(library.size(), 0);
     }
 
     @Test
     public void TestEmpty(){
-        Assertions.assertTrue(bibliotheque.isEmpty());
+        Assertions.assertTrue(library.isEmpty());
         IElements el = factory.newElements("Bonjour", "c:/Bonjour.mp4");
-        bibliotheque.add(el);
-        Assertions.assertEquals(bibliotheque.size(), 1);
-        bibliotheque.clear();
-        Assertions.assertEquals(bibliotheque.size(), 0);
+        library.add(el);
+        Assertions.assertEquals(library.size(), 1);
+        library.clear();
+        Assertions.assertEquals(library.size(), 0);
     }
 
     @Test
     public void TestContains(){
         IElements el = factory.newElements("Bonjour", "c/Bonjour.mp4");
-        bibliotheque.add(el);
-        Assertions.assertEquals(bibliotheque.size(), 1);
-        Assertions.assertTrue(bibliotheque.contains(el));
+        library.add(el);
+        Assertions.assertEquals(library.size(), 1);
+        Assertions.assertTrue(library.contains(el));
     }
 
 }

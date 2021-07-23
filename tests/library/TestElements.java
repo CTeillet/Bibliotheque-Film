@@ -11,8 +11,8 @@ public class TestElements {
     @Test
     public void TestElementsCreation(){
         IElements elements = fact.newElements("Bonjour", "c:/bonjour.mp4");
-        Assertions.assertEquals(elements.getTitre(), "Bonjour");
-        Assertions.assertEquals(elements.getEmplacement(), "c:/bonjour.mp4");
+        Assertions.assertEquals(elements.getTitle(), "Bonjour");
+        Assertions.assertEquals(elements.getPath(), "c:/bonjour.mp4");
     }
 
 }

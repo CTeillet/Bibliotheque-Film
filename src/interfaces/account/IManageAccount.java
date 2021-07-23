@@ -3,10 +3,10 @@ package interfaces.account;
 import java.util.Date;
 
 public interface IManageAccount {
-    boolean addPersonne(String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance);
-    boolean addPersonne(String mail, String identifiant, String motDePasse);
-    boolean removePersonne(String identifiant);
-    boolean isPassword(String identifiant, String motDePasse);
+    boolean addPersonne(String surname, String name, String mail, String identifiant, String password, Date birthDate);
+    boolean addPersonne(String mail, String username, String password);
+    boolean removePersonne(String username);
+    boolean isPassword(String username, String password);
     int size();
 
 }

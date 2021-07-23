@@ -24,11 +24,11 @@ public class Factory {
         return fact;
     }
 
-    public IPerson newPersonne(String nom, String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance){
-        return new Person(nom, prenom, mail, identifiant, motDePasse, dateNaissance);
+    public IPerson newPersonne(String name, String surname, String mail, String username, String password, Date birthDate){
+        return new Person(name, surname, mail, username, password, birthDate);
     }
-    public IPerson newPersonne(String mail, String identifiant, String motDePasse){
-        return new Person(mail, identifiant, motDePasse);
+    public IPerson newPersonne(String mail, String username, String motDePasse){
+        return new Person(mail, username, motDePasse);
     }
     public IManageAccount newGestionCompte(){
         return ManageAccount.getGestionCompte();
@@ -38,20 +38,20 @@ public class Factory {
         return new ManageConnection(gestionCompte);
     }
 
-    public IElements newElements(String titre, String emplacement){
-        return new Elements(titre, emplacement);
+    public IElements newElements(String title, String path){
+        return new Elements(title, path);
     }
 
 
-    public IFilm newFilm(String titre, String emplacement, String realisateur, String duree, List<String> acteurs) {
-        return new Film(titre, emplacement, realisateur, duree, acteurs);
+    public IFilm newFilm(String title, String path, String director, String duration, List<String> actors) {
+        return new Film(title, path, director, duration, actors);
     }
 
-    public ILibrary newBibliotheque() {
+    public ILibrary newLibrary() {
         return new Library();
     }
 
-    public IManageLibrary newGestionBibliotheque(){
+    public IManageLibrary newGestionLibrary(){
         return ManageLibrary.getInstance();
     }
 

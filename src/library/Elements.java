@@ -3,19 +3,19 @@ package library;
 import interfaces.library.IElements;
 
 public class Elements implements IElements {
-    private final String titre;
-    private final String emplacement;
+    private final String title;
+    private final String path;
 
-    public Elements(String titre, String emplacement) {
-        this.titre = titre;
-        this.emplacement = emplacement;
+    public Elements(String title, String path) {
+        this.title = title;
+        this.path = path;
     }
 
-    public String getTitre() {
-        return titre;
+    public String getTitle() {
+        return title;
     }
 
-    public String getEmplacement() {
-        return emplacement;
+    public String getPath() {
+        return path;
     }
 }

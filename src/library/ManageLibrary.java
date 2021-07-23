@@ -46,7 +46,7 @@ public class ManageLibrary implements IManageLibrary {
 
     private ManageLibrary(){
         Factory fact = Factory.getFact();
-        library = fact.newBibliotheque();
+        library = fact.newLibrary();
     }
 
     public static IManageLibrary getInstance() {

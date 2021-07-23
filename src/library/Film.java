@@ -5,27 +5,27 @@ import interfaces.library.IFilm;
 import java.util.List;
 
 public class Film extends Elements implements IFilm {
-    private final String realisateur;
-    private final String duree;
-    private final List<String> acteurs;
+    private final String director;
+    private final String duration;
+    private final List<String> actors;
 
 
-    public Film(String titre, String emplacement, String realisateur, String duree, List<String> acteurs) {
+    public Film(String titre, String emplacement, String director, String duration, List<String> actors) {
         super(titre, emplacement);
-        this.realisateur = realisateur;
-        this.duree=duree;
-        this.acteurs=acteurs;
+        this.director = director;
+        this.duration=duration;
+        this.actors=actors;
     }
 
-    public String getRealisateur() {
-        return realisateur;
+    public String getDirector() {
+        return director;
     }
 
-    public String getDuree() {
-        return duree;
+    public String getDuration() {
+        return duration;
     }
 
-    public List<String> getActeurs() {
-        return acteurs;
+    public List<String> getActors() {
+        return actors;
     }
 }

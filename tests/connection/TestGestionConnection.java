@@ -50,22 +50,22 @@ public class TestGestionConnection {
     static class BouchonCompte implements IManageAccount {
 
         @Override
-        public boolean addPersonne(String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance) {
+        public boolean addPersonne(String surname, String name, String mail, String username, String password, Date birthDate) {
             return true;
         }
 
         @Override
-        public boolean addPersonne(String mail, String identifiant, String motDePasse) {
+        public boolean addPersonne(String mail, String username, String password) {
             return true;
         }
 
         @Override
-        public boolean removePersonne(String identifiant) {
+        public boolean removePersonne(String username) {
             return true;
         }
 
         @Override
-        public boolean isPassword(String identifiant, String motDePasse) {
+        public boolean isPassword(String username, String password) {
             return true;
         }
 

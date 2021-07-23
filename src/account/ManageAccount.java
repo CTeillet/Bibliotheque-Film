@@ -19,15 +19,15 @@ public class ManageAccount implements IManageAccount {
     }
 
     @Override
-    public boolean addPersonne(String prenom, String mail, String identifiant, String motDePasse, Date dateNaissance) {
-        if(inscrits.containsKey(identifiant)) return false;
-        inscrits.put(identifiant, factory.newPersonne(prenom,  prenom, mail, identifiant, motDePasse, dateNaissance));
+    public boolean addPersonne(String surname,String name, String mail, String username, String password, Date birthDate) {
+        if(inscrits.containsKey(username)) return false;
+        inscrits.put(username, factory.newPersonne(surname,  name, mail, username, password, birthDate));
         return true;
     }
 
     @Override
     public boolean addPersonne(String mail, String identifiant, String motDePasse) {
-        return this.addPersonne("", mail, identifiant, motDePasse, null);
+        return this.addPersonne("", "", mail, identifiant, motDePasse, null);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ManageAccount implements IManageAccount {
     public boolean isPassword(String identifiant, String motDePasse) {
         IPerson pers = inscrits.get(identifiant);
         if(pers == null) return false;
-        return pers.getMotDePasse().equals(motDePasse);
+        return pers.getPassword().equals(motDePasse);
     }
 
     public int size(){

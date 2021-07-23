@@ -3,15 +3,15 @@ package interfaces.account;
 import java.util.Date;
 
 public interface IPerson {
-    String getNom();
+    String getName();
 
-    String getPrenom();
+    String getSurname();
 
     String getMail();
 
-    String getIdentifiant();
+    String getUsername();
 
-    String getMotDePasse();
+    String getPassword();
 
-    Date getDateNaissance();
+    Date getBirthDate();
 }
